@@ -1,12 +1,12 @@
 <?php get_header(); ?>
-
+<?php while (have_posts()) : the_post(); ?>
 	<!-- Breadcrumb -->
 	<section style="background-color: #e9ecef;">
 		<div class="container max-width" style="max-width: 900px;">
 			<div aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="#">Notícias</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">Título da notícia com até tantos dígitos que será definido</li>
+			    <li class="breadcrumb-item active" aria-current="page"><?php the_title(); ?></li>
 			  </ol>
 			</div>			
 		</div>
@@ -49,6 +49,12 @@
     <!-- Ler Mais Notícias -->
 	<section class="container">
 		<div class="row">
+		<?php
+            $args = array('post_type'=>'post', 'showposts'=>'4');
+            $meus_posts = get_posts($args);
+            $id_post_atual = get_the_id();
+            if(count($meus_posts)>1):
+        ?>
 			<div class="col-lg-8 pt-4 mx-auto">
 				<h2 class="title pt-3 pb-1">Ler mais notícias</h2>
 				<div class="row-title mb-3"></div>
@@ -57,49 +63,45 @@
 	</section>
 	<!-- Cards horizontais de outras notícias -->
 	<section class="container mt-2">
-		<div class="row">
+
+	<div class="row">
+		<?php
+                foreach($meus_posts as $post):
+                setup_postdata($post);
+                if(get_the_id()!=$id_post_atual):
+        ?>
 			<div class="col-lg-8 mx-auto">
 				<div class="card mb-0 border-0">
 				  <div class="row no-gutters">
 				    <div class="col-md-4 d-md-block d-none">
-				      <img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" style="width: 100%;" class="" alt="Imagem da Notícia">
+				      <img src="<?php the_post_thumbnail('post-thumbnail', array('class' => 'img-fluid'));?>
 				    </div>
 				    <div class="col-md-8">
 				      <div class="card-body pt-lg-1 pt-sm-3">
-				        <a href="#"><h5 class="card-title title-card-noticia">Título da notícia</h5></a>	
-				        <p class="card-text card-description-v-noticia">Aliquam erat volutpat. Aliquam pretium odio non leo semper efficitur. Vivamus rhoncus, sem eu luctus interdum, nibh nunc commodo odio, a auctor lacus ante eget odio. In ac fermentum nulla.</p>
-				        <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
+				        <a href="<?php the_permalink(); ?>"><h5 class="card-title title-card-noticia"><?php the_title(); ?></h5></a>	
+				        <p class="card-text card-description-v-noticia"> <?php the_excerpt(); ?></p>
+				        <p class="card-text"><small class="text-muted">Publicado em <?php echo get_the_date('d/m/y');?></small></p>
 				      </div>
 				    </div>
 				  </div>
 				</div>
-			</div>
-			<!-- Linha de divisão das notícias		 -->
-			<div class="col-lg-8 mx-auto mt-2">
-				<div class="row-title mb-3"></div>
 			</div>
 		
-			<div class="col-lg-8 mx-auto mt-2">
-				<div class="card mb-0 border-0">
-				  <div class="row no-gutters ">
-				    <div class="col-md-4 d-md-block d-none">
-                      <img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" style="width: 100%;" class="" alt="Imagem da Notícia">
-				    </div>
-				    <div class="col-md-8">
-				      <div class="card-body pt-lg-1 pt-sm-3">
-				      	<a href="#"><h5 class="card-title title-card-noticia">Título da notícia</h5></a>			
-				        <p class="card-text card-description-v-noticia">Aliquam erat volutpat. Aliquam pretium odio non leo semper efficitur. Vivamus rhoncus, sem eu luctus interdum, nibh nunc commodo odio, a auctor lacus ante eget odio. In ac fermentum nulla.</p>
-				        <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</div>
 			<!-- Linha de divisão das notícias		 -->
 			<div class="col-lg-8 mx-auto mt-2">
-				<div class="row-title mb-3"></div>
+			     <div class="row-title mb-3">
+			     	
+			     </div>
 			</div>
-		</div>
-    </section>
+			
+			
+		<?php
+                endif;
+                endforeach;
+                endif;
+            ?>	
+	</div>
+    <?php endwhile; ?>
+	</section>
     
 <?php get_footer(); ?>
