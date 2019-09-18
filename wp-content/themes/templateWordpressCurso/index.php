@@ -145,7 +145,7 @@
 			<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 				<div class="col-lg-3 mb-5 col-md-4">
 					<!-- Imagem -->
-					<img src="<?php the_post_thumbnail('post-thumbnail', array('class' => 'card-img-top rounded-0 border-noticia img-fluid'));?>
+					<img src="<?php the_post_thumbnail('post-thumbnail', array('class' => 'card-img-top rounded-0 border-noticia img-fluid', 'alt' => 'Descrição da imagem'));?>
 					<div class="card-body p-0 mt-3">
 					<!-- Título -->
 					<a class="card-title-noticia" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
