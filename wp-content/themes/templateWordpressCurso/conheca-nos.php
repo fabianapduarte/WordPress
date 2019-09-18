@@ -1,4 +1,4 @@
-
+<?php get_header(); ?>
 
 	<!-- Breadcrumb -->
 	<section style="background-color: #e9ecef;">
@@ -85,3 +85,5 @@
 			</div>
 		</div>
 	</section>
+
+<?php get_footer(); ?>

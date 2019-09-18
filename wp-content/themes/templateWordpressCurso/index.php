@@ -156,7 +156,7 @@
 				</div>			
 			<?php endwhile;?>
 				<div class="col-12 text-center">
-					<a href="http://localhost/aeba/noticias/"><button type="submit" class="btn btn-home pl-4 pr-4">Ler mais notícias</button></a>
+					<a href="http://localhost/wordpress/noticias/"><button type="submit" class="btn btn-home pl-4 pr-4">Ler mais notícias</button></a>
 				</div>
 			<?php endif; ?>
 		</div>	
