@@ -90,16 +90,15 @@
 			<!-- Linha de divisão das notícias		 -->
 			<div class="col-lg-8 mx-auto mt-2">
 			     <div class="row-title mb-3">
-			     	
 			     </div>
 			</div>
 			
 			
 		<?php
-                endif;
-                endforeach;
-                endif;
-            ?>	
+            endif;
+            endforeach;
+            endif;
+        ?>	
 	</div>
     <?php endwhile; ?>
 	</section>
