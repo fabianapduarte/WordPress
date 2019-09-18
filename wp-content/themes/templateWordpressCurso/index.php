@@ -142,54 +142,23 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-3 mb-5 col-md-4">
-				<!-- Imagem -->
-				<img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" class="card-img-top rounded-0 border-noticia" alt="...">
-			    <div class="card-body p-0 mt-3">
-			    	<!-- Título -->
-			      <a class="card-title-noticia" href="#">Evento na Assembléia para novas obras</a>
-			      <!-- Descrição -->
-			      <p class="card-text text-description mt-1">Presença dos membros do conselho para realização do feito em prol da população.</p>
-			      <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
-			    </div>
-			 </div>			
-			<div class="col-lg-3 mb-5 col-md-4">
-				<!-- Imagem -->
-				<img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" class="card-img-top rounded-0 border-noticia" alt="...">
-			    <div class="card-body p-0 mt-3">
-			    	<!-- Título -->
-			      <a class="card-title-noticia" href="#">Evento na Assembléia para novas obras</a>
-			      <!-- Descrição -->
-			      <p class="card-text text-description mt-1">Presença dos membros do conselho para realização do feito em prol da população.</p>
-			      <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
-			    </div>
-			 </div>
-			<div class="col-lg-3 mb-5 col-md-4">
-				<!-- Imagem -->
-				<img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" class="card-img-top rounded-0 border-noticia" alt="...">
-			    <div class="card-body p-0 mt-3">
-			    	<!-- Título -->
-			      <a class="card-title-noticia" href="#">Evento na Assembléia para novas obras</a>
-			      <!-- Descrição -->
-			      <p class="card-text text-description mt-1">Presença dos membros do conselho para realização do feito em prol da população.</p>
-			      <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
-			    </div>
-			 </div>
-			 <div class="col-lg-3 mb-5 col-md-4">
-				<!-- Imagem -->
-				<img src="<?php bloginfo('template_url')?>/assets/img/image-noticia.png" class="card-img-top rounded-0 border-noticia" alt="...">
-			    <div class="card-body p-0 mt-3">
-			    	<!-- Título -->
-			      <a class="card-title-noticia" href="#">Evento na Assembléia para novas obras</a>
-			      <!-- Descrição -->
-			      <p class="card-text text-description mt-1">Presença dos membros do conselho para realização do feito em prol da população.</p>
-			      <p class="card-text"><small class="text-muted">Publicado em 05/09/2019</small></p>
-			    </div>
-			 </div>
-
-			<div class="col-12 text-center">
-				<a href="noticias.html"><button type="submit" class="btn btn-home pl-4 pr-4">Ler mais notícias</button></a>
-			</div>
+			<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+				<div class="col-lg-3 mb-5 col-md-4">
+					<!-- Imagem -->
+					<img src="<?php the_post_thumbnail('post-thumbnail', array('class' => 'card-img-top rounded-0 border-noticia img-fluid'));?>
+					<div class="card-body p-0 mt-3">
+					<!-- Título -->
+					<a class="card-title-noticia" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					<!-- Descrição -->
+					<p class="card-text text-description mt-1"><?php echo the_excerpt(); ?></p>
+					<p class="card-text"><small class="text-muted">Publicado em <?php echo get_the_date('d/m/y');?></small></p>
+					</div>
+				</div>			
+			<?php endwhile;?>
+				<div class="col-12 text-center">
+					<a href="http://localhost/aeba/noticias/"><button type="submit" class="btn btn-home pl-4 pr-4">Ler mais notícias</button></a>
+				</div>
+			<?php endif; ?>
 		</div>	
 	</section>
 

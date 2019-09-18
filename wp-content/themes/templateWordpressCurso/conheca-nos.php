@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<!-- Meta tag obrigatória -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Yasmim Morais de Vasconcelos">
-	<title>Conheça-nos - Associação dos Empresários do Bairro do Alecrim</title>
 
-	<!-- Link para a folha de estilo -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	
-	<!-- Favicon  -->
-	<link rel="shortcut icon" href="assets/img/favicon_aeba.png">
-	
-	<!-- Links das fontes: Roboto e Open Sans -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
 
 	<!-- Breadcrumb -->
 	<section style="background-color: #e9ecef;">
@@ -103,6 +85,3 @@
 			</div>
 		</div>
 	</section>
-
-</body>
-</html>
